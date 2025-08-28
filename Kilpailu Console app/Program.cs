@@ -39,13 +39,44 @@ static void ylänimet(int maxLength, List<string> lajit) {
     }
     Console.WriteLine("pisteet yhteensä|");
 }
-static void user(List<string> nimet, List<double> pisteet) {
+static void user(List<string> nimet, List<double> pisteet, List<string> lajit,int maxLength) {
     foreach (string nimi in nimet)
     {
-        Console.Write("| ");
+        Console.Write("|");
         Console.Write(nimi);
-        Console.Write(" |");
         int x = nimet.IndexOf(nimi);
+        for (int i = 0; i <= maxLength - 1 -nimi.Length; i++)
+        {
+            Console.Write(" ");
+        }
+        Console.Write('|');
+        int temp_x = x;
+        int total = 0;
+        foreach (string laji in lajit) {
+            for (int lenght = 0; lenght <= laji.Length - 2; lenght++)
+            {
+                Console.Write(" ");
+                if (lenght == laji.Length / 2 -1)
+                {
+                    Console.Write(pisteet[x]);
+                    x += 3;
+                    total += x;
+                }
+            }
+            Console.Write("|");
+        }
+        string temp = total.ToString();
+
+        for (int i = 0; i <= 15 -temp.Length; i++)
+        {
+            Console.Write(" ");
+            if(i == 7)
+            {
+                Console.Write(total);
+            }
+
+        }
+        Console.WriteLine("|");
         
 
     }
@@ -66,8 +97,8 @@ foreach (string s in lajit)
 yläpalkki(maxLength, laji_lenghts);
 ylänimet(maxLength, lajit);
 yläpalkki(maxLength, laji_lenghts);
-user(nimet,pisteet);
-
+user(nimet,pisteet,lajit,maxLength);
+yläpalkki(maxLength, laji_lenghts);
 
 
 
