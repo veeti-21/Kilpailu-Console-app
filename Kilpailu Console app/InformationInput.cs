@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InformationInput
 {
-    internal class Program
+    internal class Methods
     {
         public static void InformationInput()
         {
@@ -14,22 +14,26 @@ namespace InformationInput
             string sport;
             double points;
 
-            Console.WriteLine("Please input your name:");
+            Console.WriteLine("Anna nimesi:");
             name = Console.ReadLine();
 
             Console.Clear();
 
-            Console.WriteLine("Please input your sport:");
+            Console.WriteLine("Anna lajisi:");
             sport = Console.ReadLine();
 
             Console.Clear();
 
-            Console.WriteLine("Please input your points:");
+            Console.WriteLine("Anna pisteesi:");
             double.TryParse(Console.ReadLine(), out points);
 
-            Scoreboard.Program.nimet.Add(name);
-            Scoreboard.Program.lajit.Add(sport);
-            Scoreboard.Program.pisteet.Add(points);
+            gui.gui.nimet.Add(name);
+            gui.gui.lajit.Add(sport);
+            gui.gui.pisteet.Add(points);
+
+            Console.Clear();
+
+            Program.Program.Main();
         }
     }
 }

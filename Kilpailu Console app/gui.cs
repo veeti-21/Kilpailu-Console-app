@@ -1,7 +1,13 @@
 ﻿
+using System.Security.Cryptography.X509Certificates;
+
 namespace gui {
     internal class gui
     {
+        public static List<string> lajit = new List<string>() { "jalkapallo", "pesäpallo" };
+        public static List<string> nimet = new List<string>() { "jaamo pesälä", "veeti korpela", "teimo jalkanen" };
+        public static List<double> pisteet = new List<double>() { 2, 3, 4, 5, 9, 1 };
+
         static void yläpalkki(int maxLength, List<int> laji_lenghts)
         {
             Console.Write('+');
@@ -86,13 +92,8 @@ namespace gui {
             }
         }
 
-        static void gui_start()
+        public static void gui_start()
         {
-
-            List<string> lajit = new List<string>() { "jalkapallo", "pesäpallo" };
-            List<string> nimet = new List<string>() { "jaamo pesälä", "veeti korpela", "teimo jalkanen" };
-            List<double> pisteet = new List<double>() { 2, 3, 4, 5, 9, 1 };
-
             int maxLength = nimet.Max(s => s.Length);
             List<int> laji_lenghts = new List<int>();
             foreach (string s in lajit)
@@ -106,6 +107,12 @@ namespace gui {
             yläpalkki(maxLength, laji_lenghts);
             user(nimet, pisteet, lajit, maxLength);
             yläpalkki(maxLength, laji_lenghts);
+
+            Console.ReadKey();
+
+            Console.Clear();
+
+            Program.Program.Main();
         }
     }
 }

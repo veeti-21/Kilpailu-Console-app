@@ -6,32 +6,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Scoreboard
+namespace Program
 {
     internal class Program
     {
-        public static List<string> lajit = new List<string>() { "jalkapallo", "pesäpallo" };
-        public static List<string> nimet = new List<string>() { "jaamo pesälä", "veeti korpela", "teimo jalkanen" };
-        public static List<double> pisteet = new List<double>() { 2, 3, 4, 5, 9, 1 };
 
-        static void Main()
+        public static void Main()
         {
-            InformationInput.Program.InformationInput();
+            string answer;
+            bool validAnswer = false;
 
-            foreach (string nimi in nimet)
-            {
-                Console.Write($"{nimi}, ");
-            }
+            Console.WriteLine("Haluatko katsoa vai lisätä tuloksia?\n1. Katso\n2. Lisää");
+            answer = Console.ReadLine();
 
-            foreach (string laji in lajit)
+            do
             {
-                Console.Write($"{laji}, ");
-            }
-
-            foreach (double piste in pisteet)
-            {
-                Console.Write($"{piste}, ");
-            }
+                switch (answer)
+                {
+                    case "1":
+                        validAnswer = true;
+                        Console.Clear();
+                        gui.gui.gui_start();
+                        break;
+                    case "2":
+                        validAnswer = true;
+                        Console.Clear();
+                        InformationInput.Methods.InformationInput();
+                        break;
+                    default:
+                        validAnswer = false;
+                        Console.Clear();
+                        break;
+                }
+            } while (!validAnswer);
         }
     }
 }
