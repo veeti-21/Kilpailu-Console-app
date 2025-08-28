@@ -8,12 +8,12 @@ namespace InformationInput
 {
     internal class Program
     {
-        public static string InformationInput()
+        public static void InformationInput()
         {
             string name;
             string sport;
-            string points;
-            
+            double points;
+
             Console.WriteLine("Please input your name:");
             name = Console.ReadLine();
 
@@ -25,9 +25,11 @@ namespace InformationInput
             Console.Clear();
 
             Console.WriteLine("Please input your points:");
-            points = Console.ReadLine();
+            double.TryParse(Console.ReadLine(), out points);
 
-            return $"{name} {sport} {points}";
+            Scoreboard.Program.nimet.Add(name);
+            Scoreboard.Program.lajit.Add(sport);
+            Scoreboard.Program.pisteet.Add(points);
         }
     }
 }
