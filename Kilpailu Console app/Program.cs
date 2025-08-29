@@ -25,6 +25,9 @@ namespace Program
                         validAnswer = true;
                         Console.Clear();
                         gui.gui.gui_start();
+
+                        //CheckFunctionality();
+
                         break;
                     case "2":
                         validAnswer = true;
@@ -37,6 +40,30 @@ namespace Program
                         break;
                 }
             } while (!validAnswer);
+
+            static void CheckInfoInputFunctionality()
+            {
+                foreach (string name in gui.gui.nimet)
+                {
+                    Console.WriteLine($"| Name: {name} |");
+                }
+
+                foreach (string sport in gui.gui.lajit)
+                {
+                    Console.WriteLine($"| Sport: {sport} |");
+                }
+
+                foreach (double point in gui.gui.pisteet)
+                {
+                    Console.WriteLine($"| Point: {point} |");
+                }
+
+                Console.ReadKey();
+
+                Console.Clear();
+
+                Main();
+            }
         }
     }
 }

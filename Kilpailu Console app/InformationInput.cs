@@ -13,25 +13,39 @@ namespace InformationInput
             string name;
             string sport;
             double points;
+            bool sportExists;
 
             Console.WriteLine("Anna nimesi:");
             name = Console.ReadLine();
+
+            gui.gui.nimet.Add(name);
 
             Console.Clear();
 
             Console.WriteLine("Anna lajisi:");
             sport = Console.ReadLine();
 
-            Console.Clear();
+            sportExists = gui.gui.lajit.Contains(sport.ToLower()) || gui.gui.lajit.Contains(sport);
 
-            Console.WriteLine("Anna pisteesi:");
-            double.TryParse(Console.ReadLine(), out points);
-
-            gui.gui.nimet.Add(name);
-            gui.gui.lajit.Add(sport);
-            gui.gui.pisteet.Add(points);
+            if (!sportExists)
+            {
+                gui.gui.lajit.Add(sport);
+            }
 
             Console.Clear();
+
+            foreach (string laji in gui.gui.lajit)
+            {
+                Console.WriteLine($"Anna pisteesi {laji}ssa:");
+                double.TryParse(Console.ReadLine(), out points);
+
+                if (points != null)
+                {
+                    gui.gui.pisteet.Add(points);
+                }
+
+                Console.Clear();
+            }
 
             Program.Program.Main();
         }
