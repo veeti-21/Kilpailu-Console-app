@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +14,11 @@ namespace Program
             string answer;
             bool validAnswer = false;
 
-            Console.WriteLine("Haluatko katsoa vai lisätä tuloksia?\n1. Katso\n2. Lisää");
-            answer = Console.ReadLine();
-
             do
             {
+                Console.WriteLine("Haluatko katsoa vai lisätä tuloksia?\n1. Katso\n2. Lisää");
+                answer = Console.ReadLine();
+
                 switch (answer)
                 {
                     case "1":
