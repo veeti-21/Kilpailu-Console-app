@@ -18,8 +18,6 @@ namespace InformationInput
             Console.WriteLine("Anna nimesi:");
             name = Console.ReadLine();
 
-            gui.gui.nimet.Add(name);
-
             Console.Clear();
 
             Console.WriteLine("Anna lajisi:");
@@ -29,7 +27,14 @@ namespace InformationInput
 
             if (!sportExists)
             {
+                Random extraPoint = new Random();
+
                 gui.gui.lajit.Add(sport);
+
+                foreach (string nimi in gui.gui.nimet)
+                {
+                    gui.gui.pisteet.Add(extraPoint.Next(10));
+                }
             }
 
             Console.Clear();
@@ -46,6 +51,8 @@ namespace InformationInput
 
                 Console.Clear();
             }
+
+            gui.gui.nimet.Add(name);
 
             Program.Program.Main();
         }
