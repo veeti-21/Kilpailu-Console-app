@@ -48,6 +48,10 @@ namespace InformationInput
                 {
                     gui.gui.pisteet.Add(points);
                 }
+                else
+                {
+                    gui.gui.pisteet.Add(0);
+                }
 
                 Console.Clear();
             }
