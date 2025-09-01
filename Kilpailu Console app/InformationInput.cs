@@ -23,13 +23,13 @@ namespace InformationInput
             Console.WriteLine("Anna lajisi:");
             sport = Console.ReadLine();
 
-            sportExists = gui.gui.lajit.Contains(sport.ToLower()) || gui.gui.lajit.Contains(sport);
+            sportExists = gui.gui.lajit.Contains(sport.ToLower());
 
             if (!sportExists)
             {
                 Random extraPoint = new Random();
 
-                gui.gui.lajit.Add(sport);
+                gui.gui.lajit.Add(sport.ToLower());
 
                 foreach (string nimi in gui.gui.nimet)
                 {
